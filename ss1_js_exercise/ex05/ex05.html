@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ứng Dụng Chuyển Đổi Tiền Tệ</title>
+</head>
+<body>
+    <!-- Ô input để nhập số tiền -->
+    <input type="number" id="amount" placeholder="Nhập số tiền">
+
+    <!-- Ô select để chọn loại tiền tệ nguồn -->
+    <select id="fromCurrency">
+        <option value="USD">USD</option>
+        <option value="VND">VND</option>
+    </select>
+
+    <!-- Ô select để chọn loại tiền tệ đích -->
+    <select id="toCurrency">
+        <option value="VND">VND</option>
+        <option value="USD">USD</option>
+    </select>
+
+    <!-- Nút button -->
+    <button onclick="convertCurrency()">Chuyển đổi</button>
+
+    <!-- Thẻ <p> để hiển thị kết quả -->
+    <p id="result"></p>
+
+    <!-- Liên kết file JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
