@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List</title>
+</head>
+<body>
+    <!-- Tiêu đề -->
+    <h1 id="header">Thêm nhiệm vụ</h1>
+
+    <!-- Ô input và nút thêm nhiệm vụ -->
+    <input type="text" id="taskInput" placeholder="Nhập nhiệm vụ" />
+    <button id="addButton" onclick="addTask()">Thêm</button>
+    <p id="errorText" style="color: red;"></p>
+
+    <!-- Bảng hiển thị danh sách nhiệm vụ -->
+    <table border="1" style="border-collapse: collapse; text-align: center" id="taskTable">
+        <tr>
+            <th>STT</th>
+            <th>Nhiệm vụ</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </table>
+
+    <!-- Liên kết đến file script -->
+    <script src="script.js"></script>
+</body>
+</html>
