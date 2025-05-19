@@ -11,7 +11,7 @@ function translates() {
 
     // Kiểm tra ô input không được trống
     if (!wordToTranslate) {
-        resultElement.textContent = "Vui lòng không được để trống";
+        resultElement.innerHTML = "<span style='color: #e74c3c;'>Vui lòng không được để trống</span>";
         return;
     }
 
@@ -20,12 +20,22 @@ function translates() {
 
     if (index !== -1) {
         // Nếu tìm thấy từ, hiển thị nghĩa tiếng Việt tương ứng
-        resultElement.textContent = vietnameseWords[index];
+        resultElement.innerHTML = `<span style='color: #4a6fa5;'>${wordToTranslate}</span>: <strong>${vietnameseWords[index]}</strong>`;
     } else {
         // Nếu không tìm thấy từ, hiển thị thông báo
-        resultElement.textContent = "Không tìm thấy";
+        resultElement.innerHTML = `<span style='color: #e74c3c;'>Không tìm thấy từ "${wordToTranslate}"</span>`;
     }
+
+    // Focus lại vào input để tiếp tục nhập từ mới
+    wordInput.focus();
 }
 
 // Gắn event click cho nút
 document.getElementById("translateButton").addEventListener("click", translates);
+
+// Thêm event Enter key để tra từ
+document.getElementById("wordInput").addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        translates();
+    }
+});

@@ -1,0 +1,106 @@
+/* Modern Dictionary Styling */
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #6f8ab7;
+  --accent-color: #e74c3c;
+  --background-color: #f9f9f9;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.search-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+#wordInput {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  font-size: 16px;
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+#wordInput:focus {
+  border-color: var(--primary-color);
+}
+
+#translateButton {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#translateButton:hover {
+  background-color: var(--secondary-color);
+}
+
+#result {
+  background-color: rgba(74, 111, 165, 0.1);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-top: 20px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.footer {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* For mobile devices */
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+}

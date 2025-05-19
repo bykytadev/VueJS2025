@@ -1,33 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quản lý sản phẩm</title>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <h1>Quản lý sản phẩm</h1>
     <form>
-        <label for="name">Tên sản phẩm:</label>
-        <input type="text" id="name" required>
-        <label for="price">Giá:</label>
-        <input type="number" id="price" required>
-        <label for="quantity">Số lượng:</label>
-        <input type="number" id="quantity" required>
-        <button type="button" id="saveButton" onclick="addProduct()">Thêm sản phẩm</button>
+      <label for="name">Tên sản phẩm:</label>
+      <input type="text" id="name" required />
+      <label for="price">Giá sản phẩm:</label>
+      <input type="number" id="price" required />
+      <label for="quantity">Số lượng:</label>
+      <input type="number" id="quantity" min="0" step="1" required />
+      <button type="button" id="saveButton" onclick="addProduct()">
+        Thêm sản phẩm
+      </button>
     </form>
     <table border="1">
-        <thead>
-            <tr>
-                <th>STT</th>
-                <th>Tên sản phẩm</th>
-                <th>Giá</th>
-                <th>Số lượng</th>
-                <th>Hành động</th>
-            </tr>
-        </thead>
-        <tbody id="productTable"></tbody>
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Sửa</th>
+          <th>Xóa</th>
+          <th>Mua hàng</th>
+        </tr>
+      </thead>
+      <tbody id="productTable"></tbody>
+    </table>
+
+    <h1>Giỏ hàng</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên sản phẩm</th>
+          <th>Số lượng</th>
+          <th>Tổng giá</th>
+          <th>Tăng</th>
+          <th>Giảm</th>
+          <th>Xóa</th>
+        </tr>
+      </thead>
+      <tbody id="cartTable"></tbody>
     </table>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -1,4 +1,3 @@
-// Mảng lưu danh sách nhiệm vụ
 let tasks = [
     "Học Java",
     "Học JavaScript",
@@ -11,6 +10,11 @@ let editingIndex = -1; // Biến lưu chỉ số của nhiệm vụ đang đư�
 // Hiển thị tasks ngay khi trang được tải
 window.onload = function() {
     displayTasks();
+    document.getElementById("taskInput").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            addTask();
+        }
+    });
 };
 
 function addTask() {
@@ -38,6 +42,7 @@ function addTask() {
 
     inputElement.value = "";
     displayTasks();
+    inputElement.focus(); // Focus vào input sau khi thêm/sửa
 }
 
 function displayTasks() {
@@ -50,23 +55,27 @@ function displayTasks() {
             <th>Delete</th>
         </tr>
     `;
-    tasks.forEach((task, index) => {
+
+    if (tasks.length === 0) {
         tableContent += `
             <tr>
-                <td>${index + 1}</td>
-                <td></td> <!-- Sử dụng innerText để hiển thị nhiệm vụ -->
-                <td><button onclick="editTask(${index})">Edit</button></td>
-                <td><button onclick="deleteTask(${index})">Delete</button></td>
+                <td colspan="4" class="empty-list">Chưa có nhiệm vụ nào</td>
             </tr>
         `;
-    });
-    table.innerHTML = tableContent;
+    } else {
+        tasks.forEach((task, index) => {
+            tableContent += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${task}</td>
+                    <td><button class="action-btn edit-btn" onclick="editTask(${index})">Edit</button></td>
+                    <td><button class="action-btn delete-btn" onclick="deleteTask(${index})">Delete</button></td>
+                </tr>
+            `;
+        });
+    }
 
-    // Gán nội dung nhiệm vụ
-    tasks.forEach((task, index) => {
-        const row = table.rows[index + 1]; // Bỏ qua hàng tiêu đề
-        row.cells[1].innerText = task; // Gán nội dung vào cột "Nhiệm vụ"
-    });
+    table.innerHTML = tableContent;
 }
 
 function editTask(index) {
@@ -75,6 +84,7 @@ function editTask(index) {
     editingIndex = index;
     document.getElementById("header").innerHTML = "Chỉnh sửa nhiệm vụ";
     document.getElementById("addButton").innerHTML = "Update";
+    inputElement.focus(); // Focus vào input để người dùng chỉnh sửa ngay
 }
 
 function deleteTask(index) {
@@ -82,5 +92,16 @@ function deleteTask(index) {
     if (confirmDelete) {
         tasks.splice(index, 1); // Xóa nhiệm vụ khỏi mảng
         displayTasks(); // Hiển thị danh sách nhiệm vụ cập nhật
+
+        // Nếu đang chỉnh sửa nhiệm vụ bị xóa, reset về trạng thái thêm mới
+        if (editingIndex === index) {
+            editingIndex = -1;
+            document.getElementById("header").innerHTML = "Thêm nhiệm vụ";
+            document.getElementById("addButton").innerHTML = "Thêm";
+            document.getElementById("taskInput").value = "";
+        } else if (editingIndex > index) {
+            // Điều chỉnh editingIndex nếu nhiệm vụ bị xóa đứng trước nhiệm vụ đang chỉnh sửa
+            editingIndex--;
+        }
     }
 }

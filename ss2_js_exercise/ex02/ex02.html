@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo List</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Tiêu đề -->
-    <h1 id="header">Thêm nhiệm vụ</h1>
+    <div class="container">
+        <!-- Tiêu đề -->
+        <h1 id="header">Thêm nhiệm vụ</h1>
 
-    <!-- Ô input và nút thêm nhiệm vụ -->
-    <input type="text" id="taskInput" placeholder="Nhập nhiệm vụ" />
-    <button id="addButton" onclick="addTask()">Thêm</button>
-    <p id="errorText" style="color: red;"></p>
+        <!-- Ô input và nút thêm nhiệm vụ -->
+        <div class="input-container">
+            <input type="text" id="taskInput" placeholder="Nhập nhiệm vụ" />
+            <button id="addButton" onclick="addTask()">Thêm</button>
+        </div>
+        <p id="errorText"></p>
 
-    <!-- Bảng hiển thị danh sách nhiệm vụ -->
-    <table border="1" style="border-collapse: collapse; text-align: center" id="taskTable">
-        <tr>
-            <th>STT</th>
-            <th>Nhiệm vụ</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-    </table>
+        <!-- Bảng hiển thị danh sách nhiệm vụ -->
+        <table id="taskTable">
+            <tr>
+                <th>STT</th>
+                <th>Nhiệm vụ</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </table>
+    </div>
 
     <!-- Liên kết đến file script -->
     <script src="script.js"></script>

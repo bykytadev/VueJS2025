@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Từ điển Tiếng Anh - Tiếng Việt</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Từ điển Tiếng Anh - Tiếng Việt</h1>
-    <input type="text" id="wordInput" placeholder="Nhập từ tiếng Anh">
-    <button id="translateButton">Tra từ</button>
-    <p id="result"></p>
+    <div class="container">
+        <h1>Từ điển Tiếng Anh - Tiếng Việt</h1>
+        <div class="search-container">
+            <input type="text" id="wordInput" placeholder="Nhập từ tiếng Anh">
+            <button id="translateButton">Tra từ</button>
+        </div>
+        <div id="result">Kết quả sẽ hiển thị ở đây</div>
+        <div class="footer">
+            Từ điển đơn giản gồm: apple, banana, cat, dog
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
